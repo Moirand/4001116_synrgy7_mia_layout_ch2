@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginVertical="20dp"
+        android:src="@drawable/money"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_cost_of_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cost_of_service"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edt_cost_of_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cost_of_service"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/initial_cost"
+        android:inputType="number"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tip"
+        app:layout_constraintTop_toBottomOf="@+id/edt_cost_of_service"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edt_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tip"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="@string/initial_cost"
+        android:inputType="number"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:chipSpacingHorizontal="40dp"
+        app:singleLine="true"
+        app:singleSelection="true"
+        app:layout_constraintTop_toBottomOf="@+id/edt_tip">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_5percent"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:text="@string/tip_5"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/chip_bg_states"
+            android:textColor="@drawable/chip_txt_states"
+            app:chipStrokeColor="@drawable/chip_stroke_states"
+            android:checkable="true"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_10percent"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:text="@string/tip_10"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/chip_bg_states"
+            android:textColor="@drawable/chip_txt_states"
+            app:chipStrokeColor="@drawable/chip_stroke_states"
+            android:checkable="true"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_15percent"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:text="@string/tip_15"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/chip_bg_states"
+            android:textColor="@drawable/chip_txt_states"
+            app:chipStrokeColor="@drawable/chip_stroke_states"
+            android:checkable="true"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_20percent"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:text="@string/tip_20"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/chip_bg_states"
+            android:textColor="@drawable/chip_txt_states"
+            app:chipStrokeColor="@drawable/chip_stroke_states"
+            android:checkable="true"/>
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/cb_round_up_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/round_up_my_tip"
+        app:layout_constraintBottom_toTopOf="@+id/btn_calculate"
+        tools:layout_editor_absoluteX="36dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green"
+        app:layout_constraintBottom_toTopOf="@id/tv_cost_amount"
+        android:layout_marginBottom="8dp"
+        android:text="@string/calculate"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_cost_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_tip_amount"
+        android:layout_marginStart="30dp"
+        android:text="@string/cost_amount"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_cost_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_tip_value"
+        android:layout_marginEnd="30dp"
+        android:text="@string/initial_cost"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_tip_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        android:layout_marginStart="30dp"
+        android:text="@string/tip_amount"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_tip_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        android:layout_marginEnd="30dp"
+        android:text="@string/initial_cost"/>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#5C000000"
+        app:layout_constraintBottom_toTopOf="@+id/tv_total_amount"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="8dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="30dp"
+        android:text="@string/total_cost"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_total_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="30dp"
+        android:text="@string/initial_cost"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
