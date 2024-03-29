@@ -10,7 +10,7 @@ fun autoCalculateTip(costOfService: String, percentage: Int): String? {
 }
 
 fun addDot(text: String): String {
-    return if (text.isNotEmpty()){
+    return if (text.isNotEmpty()) {
         DecimalFormat("#,###").format(text.toLong())
     } else {
         ""
@@ -18,7 +18,7 @@ fun addDot(text: String): String {
 }
 
 fun removeDot(text: String): String {
-    return if (text.isNotEmpty()){
+    return if (text.isNotEmpty()) {
         text.replace(".", "")
     } else {
         ""

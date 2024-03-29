@@ -1,10 +1,7 @@
 package com.example.layout
 
 import addDot
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -49,21 +46,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         tvTipAmount = findViewById(R.id.tv_tip_value)
         tvTotalAmount = findViewById(R.id.tv_total_value)
 
-        edtCostOfService.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                /* Mengatur penambahan titik (.) pada setiap 3 digit */
-                edtCostOfService.removeTextChangedListener(this)
-                val text = s.toString().replace(".", "")
-                val formattedText = addDot(text)
-                edtCostOfService.setText(formattedText)
-                edtCostOfService.setSelection(formattedText.length)
-                edtCostOfService.addTextChangedListener(this)
-            }
-        })
+        edtCostOfService.addTextChangedListener(TextWatherBuatanSaya(edtCostOfService))
+        edtTip.addTextChangedListener(TextWatherBuatanSaya(edtTip))
 
         cgTip.setOnCheckedChangeListener { checkGroup, checkedId ->
             val chip: Chip? = checkGroup.findViewById(checkedId)
@@ -103,7 +87,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnCalculate.setOnClickListener(this)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onClick(v: View?) {
         val costOfService =
             if (edtCostOfService.text.toString() == "") "0" else removeDot(edtCostOfService.text.toString())
